@@ -61,6 +61,24 @@
   <ItemGroup>
     <Compile Include="AppUser.cs" />
     <Compile Include="FakeIssueRepository.cs" />
+    <Compile Include="IssueSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueSelect.Designer.cs">
+      <DependentUpon>IssueSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordIssue.Designer.cs">
+      <DependentUpon>RecordIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssueDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueDashboard.Designer.cs">
+      <DependentUpon>IssueDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="IIssueRepository.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="FakeAppUserRepository.cs" />
@@ -109,6 +127,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="IssueSelect.resx">
+      <DependentUpon>IssueSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +148,9 @@
     <EmbeddedResource Include="FormSelectProject.resx">
       <DependentUpon>FormSelectProject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IssueDashboard.resx">
+      <DependentUpon>IssueDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,6 +160,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RecordIssue.resx">
+      <DependentUpon>RecordIssue.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FakeIssueRepository.datasource" />
     <None Include="Properties\Settings.settings">

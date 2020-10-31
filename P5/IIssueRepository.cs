@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Builder
+namespace P5
 {
-    interface IIssueRepository
+    public interface IIssueRepository
     {
-        string Add(Issue issue);
+        string Add(Issue issue, out int Id);
         List<Issue> GetAll(int ProjectID);
         bool Remove(Issue issue);
         string Modify(Issue issue);
