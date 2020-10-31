@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Builder
+{
+    class Issue
+    {
+        public int Id { get; set; }
+        public int ProjectId { get; set; }
+        public string Title { get; set; }
+        public DateTime DiscoveryDate { get; set; }
+        public string Discoverer { get; set; }
+        public string InitialDesscription {get; set;}
+        public string Component { get; set; }
+        public int IssueStatusId { get; set; }
+
+    }
+}
