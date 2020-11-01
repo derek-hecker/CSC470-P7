@@ -30,6 +30,12 @@ namespace P5
             {
                 listbxDiscoverer.Items.Add(s);
             }
+            List<string> months = IssueRepository.GetIssuesByMonth(_SelectedProjectId);
+            foreach (string m in months)
+            {
+                listbxMonth.Items.Add(m);
+            }
+
         }
     }
 }

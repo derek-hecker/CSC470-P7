@@ -112,12 +112,48 @@ namespace P5
 
         public List<string> GetIssuesByMonth(int ProjectID)
         {
-            throw new NotImplementedException();
+            List<string> month_list = new List<string>();
+            List<string> final_list = new List<string>();
+            List<Issue> issues = new List<Issue>();
+            foreach (Issue i in _Issues)
+            {
+                if (i.ProjectId == ProjectID)
+                {
+                    issues.Add(i);
+                    if (!month_list.Contains(i.DiscoveryDate.Month.ToString()))
+                    {
+                        month_list.Add(i.DiscoveryDate.Month.ToString());
+                    }
+
+                }
+            }
+            foreach (string p in month_list)
+            {
+                int issue_count = 0;
+                foreach (Issue i in issues)
+                {
+                    if (i.DiscoveryDate.Month.ToString() == p)
+                    {
+                        issue_count++;
+                    }
+                }
+                string tmp = p + " : " + issue_count.ToString();
+                final_list.Add(tmp);
+            }
+            return final_list;
         }
 
         public int GetTotalNumberOfIssues(int ProjectID)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            foreach (Issue i in _Issues)
+            {
+                if (i.ProjectId == ProjectID)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         public string Modify(Issue issue)
