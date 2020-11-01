@@ -35,7 +35,7 @@ namespace P5
             {
                 listbxMonth.Items.Add(m);
             }
-
+            lblTotalIssues.Text = IssueRepository.GetTotalNumberOfIssues(_SelectedProjectId).ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

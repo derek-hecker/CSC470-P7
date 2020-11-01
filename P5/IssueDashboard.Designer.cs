@@ -35,6 +35,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.listbxMonth = new System.Windows.Forms.ListBox();
             this.listbxDiscoverer = new System.Windows.Forms.ListBox();
+            this.lblTotalIssues = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -98,11 +99,20 @@
             this.listbxDiscoverer.Size = new System.Drawing.Size(310, 160);
             this.listbxDiscoverer.TabIndex = 6;
             // 
+            // lblTotalIssues
+            // 
+            this.lblTotalIssues.AutoSize = true;
+            this.lblTotalIssues.Location = new System.Drawing.Point(158, 47);
+            this.lblTotalIssues.Name = "lblTotalIssues";
+            this.lblTotalIssues.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalIssues.TabIndex = 7;
+            // 
             // IssueDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 568);
+            this.Controls.Add(this.lblTotalIssues);
             this.Controls.Add(this.listbxDiscoverer);
             this.Controls.Add(this.listbxMonth);
             this.Controls.Add(this.btnClose);
@@ -127,5 +137,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ListBox listbxMonth;
         private System.Windows.Forms.ListBox listbxDiscoverer;
+        private System.Windows.Forms.Label lblTotalIssues;
     }
 }

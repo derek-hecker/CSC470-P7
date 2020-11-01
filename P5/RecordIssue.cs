@@ -17,6 +17,7 @@ namespace P5
             issueRepository = issueRepo;
             fakeIssueStatusRepository = new FakeIssueStatusRepository();
             InitializeComponent();
+            dateTimePicker1.MaxDate = DateTime.Today;
         }
 
         private void label3_Click(object sender, EventArgs e)

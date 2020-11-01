@@ -13,7 +13,7 @@ namespace P5
         public const string NO_ERROR = "";
         public const string EMPTY_TITLE_ERROR = "A Title is required";
         public const string EMPTY_DISCOVERY_DATE = "Must select a Discovery Date/Time";
-        public const string FUTURE_DISCOVERY_DATE = "Issues can't be fromthe future";
+        public const string FUTURE_DISCOVERY_DATE = "Issues can't be from the future";
         public const string EMPTY_DISCOVERER_ERROR = "A discoverer is required";
         public const string DUPLICATE_TITLE_ERROR = "Issue Title must be unique. ";
         public int _SelectedProjectID;
@@ -65,16 +65,15 @@ namespace P5
 
         public Issue GetIssueByID(int ID)
         {
-            Issue tmpIssue;
-            try
+            Issue issue = new Issue();
+            foreach (Issue i in _Issues)
             {
-                tmpIssue = _Issues[ID];
+                if (i.Id == ID)
+                {
+                    issue = i;
+                }
             }
-            catch
-            {
-                tmpIssue = null;
-            }
-            return tmpIssue;
+            return issue;
         }
 
         public List<string> GetIssuesByDiscoverer(int ProjectID)
@@ -160,12 +159,43 @@ namespace P5
 
         public string Modify(Issue issue)
         {
-            throw new NotImplementedException();
+            if (IsDuplicateTitle(issue.Title)){
+                return DUPLICATE_TITLE_ERROR;
+            }
+            if (issue.Title == "")
+            {
+                return EMPTY_TITLE_ERROR;
+            }
+            if (issue.Discoverer == "")
+            {
+                return EMPTY_DISCOVERER_ERROR;
+            }
+            int index = 0;
+            foreach (Issue i in _Issues)
+            {
+                if (issue.Id == i.Id) 
+                {
+                    _Issues[index] = issue;
+                    return NO_ERROR;
+                }
+                index++;
+            }
+            return NO_ERROR;
         }
 
         public bool Remove(Issue issue)
         {
-            throw new NotImplementedException();
+            int index = 0;
+            foreach (Issue i in _Issues)
+            {
+                if (i.Id == issue.Id)
+                {
+                    _Issues.RemoveAt(index);
+                    return true;
+                }
+                index++;
+            }
+            return false;
         }
 
         public bool IsDuplicateTitle(string issueTitle)

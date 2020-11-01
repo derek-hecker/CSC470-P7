@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using Builder;
+using System.Windows.Forms;
 
 namespace P5
 {
@@ -103,6 +104,19 @@ namespace P5
             RecordIssue form = new RecordIssue(_CurrentAppUser, selected_id, fakeIssueRepository);
             form.ShowDialog();
             form.Dispose();
+        }
+
+        private void issuesModifyToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            IssueSelect select = new IssueSelect(_CurrentAppUser, selected_id);
+            select.ShowDialog();
+            if (select.DialogResult == DialogResult.OK)
+            {
+                FormModifyIssue form = new FormModifyIssue(select.selectedIssueID, selected_id);
+                form.ShowDialog();
+                form.Dispose();
+            }
+            select.Dispose();
         }
     }
 }
