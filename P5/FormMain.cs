@@ -118,5 +118,27 @@ namespace P5
             }
             select.Dispose();
         }
+
+        private void issuesRemoveToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            IssueSelect select = new IssueSelect(_CurrentAppUser, selected_id);
+            select.ShowDialog();
+            if (select.DialogResult == DialogResult.OK)
+            {
+                Issue tmp = fakeIssueRepository.GetIssueByID(select.selectedIssueID);
+                string del = "Are you sure you want to delete " + tmp.Title;
+                DialogResult dialogResult = MessageBox.Show(del, "Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    fakeIssueRepository.Remove(tmp);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Delete cancelled", "Attention");
+                    this.Close();
+                }
+            }
+            select.Dispose();
+        }
     }
 }
