@@ -1,4 +1,4 @@
-﻿namespace Builder
+﻿namespace P5
 {
     partial class IssueDashboard
     {
@@ -111,6 +111,7 @@
             this.Controls.Add(this.label1);
             this.Name = "IssueDashboard";
             this.Text = "Issue Dashboard";
+            this.Load += new System.EventHandler(this.IssueDashboard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

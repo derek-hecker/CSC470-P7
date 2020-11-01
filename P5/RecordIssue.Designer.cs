@@ -1,4 +1,4 @@
-﻿namespace Builder
+﻿namespace P5
 {
     partial class RecordIssue
     {
@@ -139,6 +139,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(92, 24);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(57, 20);
@@ -180,6 +181,7 @@
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(259, 21);
             this.comboBoxStatus.TabIndex = 15;
+            this.comboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.comboBoxStatus_SelectedIndexChanged);
             // 
             // RecordIssue
             // 
@@ -204,6 +206,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RecordIssue";
             this.Text = "Record Issue";
+            this.Load += new System.EventHandler(this.RecordIssue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

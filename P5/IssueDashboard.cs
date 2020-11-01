@@ -8,13 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Builder
+namespace P5
 {
     public partial class IssueDashboard : Form
     {
-        public IssueDashboard()
+        AppUser _currentAppUser;
+        int _SelectedProjectId;
+        public IssueDashboard(AppUser _CurrentAppUser, int selected_id)
         {
+            _currentAppUser = _CurrentAppUser;
+            _SelectedProjectId = selected_id;
             InitializeComponent();
+        }
+
+        private void IssueDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

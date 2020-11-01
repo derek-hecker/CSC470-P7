@@ -60,6 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUser.cs" />
+    <Compile Include="FakeIssueStatusRepository.cs" />
+    <Compile Include="IIssueStatusRepository.cs" />
+    <Compile Include="IssueStatus.cs" />
     <Compile Include="FakeIssueRepository.cs" />
     <Compile Include="IssueSelect.cs">
       <SubType>Form</SubType>

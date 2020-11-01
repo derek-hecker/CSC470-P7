@@ -5,6 +5,8 @@ namespace P5
     public partial class FormMain : Form
     {
         private AppUser _CurrentAppUser = new AppUser();
+        public int selected_id;
+        FakeIssueRepository fakeIssueRepository;
         public FormMain()
         {
             InitializeComponent();
@@ -18,6 +20,7 @@ namespace P5
 
         private void FormMain_Load(object sender, System.EventArgs e)
         {
+            
             this.CenterToScreen();
             // Force the user to login successfully or abort the application
             DialogResult isOK = DialogResult.OK;
@@ -66,7 +69,9 @@ namespace P5
                                                    FakePreferenceRepository.PREFERENCE_PROJECT_ID,
                                                    selectedProjectId.ToString());
                 this.Text = "Main - " + form._SelectedProjectName;
+                this.selected_id = form._SelectedProjectId;
                 selectedProject = form._SelectedProjectName;
+                fakeIssueRepository = new FakeIssueRepository(selectedProjectId);
             }
             form.Dispose();
             return selectedProject;
@@ -88,7 +93,16 @@ namespace P5
 
         private void issuesDashboardToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            IssueDashboard form = new IssueDashboard(_CurrentAppUser, selected_id);
+            form.ShowDialog();
+            form.Dispose();
+        }
 
+        private void issuesRecordToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            RecordIssue form = new RecordIssue(_CurrentAppUser, selected_id, fakeIssueRepository);
+            form.ShowDialog();
+            form.Dispose();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Builder
+﻿namespace P5
 {
     partial class IssueSelect
     {
@@ -60,7 +60,7 @@
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
             // 
-            // IssueModify
+            // IssueSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,8 +68,9 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "IssueModify";
+            this.Name = "IssueSelect";
             this.Text = "Select Issue";
+            this.Load += new System.EventHandler(this.IssueSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

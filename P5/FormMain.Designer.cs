@@ -83,28 +83,28 @@
             // preferencesSelectProjectToolStripMenuItem
             // 
             this.preferencesSelectProjectToolStripMenuItem.Name = "preferencesSelectProjectToolStripMenuItem";
-            this.preferencesSelectProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesSelectProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.preferencesSelectProjectToolStripMenuItem.Text = "&Select Project";
             this.preferencesSelectProjectToolStripMenuItem.Click += new System.EventHandler(this.preferencesSelectProjectToolStripMenuItem_Click);
             // 
             // preferencesCreateProjectToolStripMenuItem
             // 
             this.preferencesCreateProjectToolStripMenuItem.Name = "preferencesCreateProjectToolStripMenuItem";
-            this.preferencesCreateProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesCreateProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.preferencesCreateProjectToolStripMenuItem.Text = "&Create Project";
             this.preferencesCreateProjectToolStripMenuItem.Click += new System.EventHandler(this.preferencesCreateProjectToolStripMenuItem_Click);
             // 
             // preferencesModifyProjectToolStripMenuItem
             // 
             this.preferencesModifyProjectToolStripMenuItem.Name = "preferencesModifyProjectToolStripMenuItem";
-            this.preferencesModifyProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesModifyProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.preferencesModifyProjectToolStripMenuItem.Text = "&Modify Project";
             this.preferencesModifyProjectToolStripMenuItem.Click += new System.EventHandler(this.preferencesModifyProjectToolStripMenuItem_Click);
             // 
             // preferencesRemoveProjectToolStripMenuItem
             // 
             this.preferencesRemoveProjectToolStripMenuItem.Name = "preferencesRemoveProjectToolStripMenuItem";
-            this.preferencesRemoveProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesRemoveProjectToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.preferencesRemoveProjectToolStripMenuItem.Text = "&Remove Project";
             this.preferencesRemoveProjectToolStripMenuItem.Click += new System.EventHandler(this.preferencesRemoveProjectToolStripMenuItem_Click);
             // 
@@ -132,6 +132,7 @@
             this.issuesRecordToolStripMenuItem.Name = "issuesRecordToolStripMenuItem";
             this.issuesRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.issuesRecordToolStripMenuItem.Text = "&Record";
+            this.issuesRecordToolStripMenuItem.Click += new System.EventHandler(this.issuesRecordToolStripMenuItem_Click);
             // 
             // issuesModifyToolStripMenuItem
             // 

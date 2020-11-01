@@ -16,7 +16,12 @@ namespace P5
         public const string FUTURE_DISCOVERY_DATE = "Issues can't be fromthe future";
         public const string EMPTY_DISCOVERER_ERROR = "A discoverer is required";
         public const string DUPLICATE_TITLE_ERROR = "Issue Title must be unique. ";
+        public int _SelectedProjectID;
 
+        public FakeIssueRepository(int selected_project_id)
+        {
+            _SelectedProjectID = selected_project_id;
+        }
         private static List<Issue> _Issues = new List<Issue>();
         public string Add(Issue issue, out int Id)
         {
@@ -36,6 +41,7 @@ namespace P5
                 return EMPTY_DISCOVERER_ERROR;
             }
             issue.Id = GetNextID();
+            issue.ProjectId = _SelectedProjectID ;
             _Issues.Add(issue);
             Id = issue.Id;
             return NO_ERROR;
@@ -44,7 +50,17 @@ namespace P5
 
         public List<Issue> GetAll(int ProjectID)
         {
-            return _Issues;
+
+            List<Issue> tmp_list = new List<Issue>();
+            
+            foreach (Issue i in _Issues)
+            {
+               if (i.ProjectId == _SelectedProjectID)
+                {
+                    tmp_list.Add(i);
+                }
+            }
+            return tmp_list;
         }
 
         public Issue GetIssueByID(int ID)
@@ -98,7 +114,7 @@ namespace P5
             }
             return isDuplicate;
         }
-        private int GetNextID()
+        public int GetNextID()
         {
             int currentMaxID = 0;
             foreach (Issue i in _Issues)

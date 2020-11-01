@@ -5,7 +5,8 @@ namespace P5
 {
     public partial class FormSelectProject : Form
     {
-        public int _SelectedProjectId = -1;
+        public int _SelectedProjectId { get; set; } = -1;
+        
         public string _SelectedProjectName = "";
         FakeProjectRepository _ProjectRepository = new FakeProjectRepository();
 

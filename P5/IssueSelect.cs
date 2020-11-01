@@ -8,11 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Builder
+
+namespace P5
 {
     public partial class IssueSelect : Form
     {
         public IssueSelect()
+        {
+            InitializeComponent();
+        }
+
+        private void IssueSelect_Load(object sender, EventArgs e)
         {
             InitializeComponent();
         }
