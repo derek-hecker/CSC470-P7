@@ -79,7 +79,35 @@ namespace P5
 
         public List<string> GetIssuesByDiscoverer(int ProjectID)
         {
-            throw new NotImplementedException();
+            List<string> name_list = new List<string>();
+            List<string> final_list = new List<string>();
+            List<Issue> issues = new List<Issue>();
+            foreach (Issue i in _Issues)
+            {
+                if (i.ProjectId == ProjectID)
+                {
+                    issues.Add(i);
+                    if (!name_list.Contains(i.Discoverer))
+                    {
+                        name_list.Add(i.Discoverer);
+                    }
+                    
+                }
+            }
+            foreach (string p in name_list)
+            {
+                int issue_count = 0;
+                foreach (Issue i in issues)
+                {
+                    if (i.Discoverer == p)
+                    {
+                        issue_count++;
+                    }
+                }
+                string tmp = p + " : " + issue_count.ToString();
+                final_list.Add(tmp);
+            }
+            return final_list;
         }
 
         public List<string> GetIssuesByMonth(int ProjectID)

@@ -162,9 +162,11 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(92, 79);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2020, 10, 31, 20, 34, 55, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(259, 20);
             this.dateTimePicker1.TabIndex = 13;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 10, 31, 0, 0, 0, 0);
             // 
             // comboBoxDiscoverer
             // 

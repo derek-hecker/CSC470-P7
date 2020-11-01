@@ -33,6 +33,7 @@ namespace P5
             issue.Discoverer = comboBoxDiscoverer.SelectedItem.ToString();
             issue.Component = textBox3.Text.Trim();
             issue.DiscoveryDate = dateTimePicker1.Value;
+            issue.IssueStatusId = fakeIssueStatusRepository.GetIdByStatus(comboBoxStatus.SelectedItem.ToString());
             string result = issueRepository.Add(issue, out _SelectedProjectID);
             if (result == FakeIssueRepository.NO_ERROR)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Castle.Core.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,12 +19,16 @@ namespace P5
         }
         public FakeIssueStatusRepository()
         {
-            Add(0, "Open");
-            Add(1, "Assigned");
-            Add(2, "Fixed");
-            Add(3, "Closed - Won't Fix");
-            Add(4, "Closed - Fixed");
-            Add(5, "Closed - by Design");
+            if (issueStatuses.IsNullOrEmpty())
+            {
+                Add(0, "Open");
+                Add(1, "Assigned");
+                Add(2, "Fixed");
+                Add(3, "Closed - Won't Fix");
+                Add(4, "Closed - Fixed");
+                Add(5, "Closed - by Design");
+            }
+
         }
         public List<IssueStatus> GetAll()
         {
