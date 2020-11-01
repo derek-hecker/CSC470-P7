@@ -38,11 +38,12 @@
             // 
             this.dataGridViewIssues.AllowUserToAddRows = false;
             this.dataGridViewIssues.AllowUserToDeleteRows = false;
-            this.dataGridViewIssues.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridViewIssues.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewIssues.Location = new System.Drawing.Point(30, 12);
             this.dataGridViewIssues.MultiSelect = false;
             this.dataGridViewIssues.Name = "dataGridViewIssues";
+            this.dataGridViewIssues.ReadOnly = true;
             this.dataGridViewIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewIssues.Size = new System.Drawing.Size(668, 284);
             this.dataGridViewIssues.TabIndex = 0;

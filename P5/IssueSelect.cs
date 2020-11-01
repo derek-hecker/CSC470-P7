@@ -1,12 +1,5 @@
-﻿using Castle.Components.DictionaryAdapter;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -30,13 +23,21 @@ namespace P5
             dataGridViewIssues.Columns[2].Name = "DiscoveryDate";
             dataGridViewIssues.Columns[3].Name = "Discoverer";
             dataGridViewIssues.Columns[4].Name = "InitialDescription";
-            dataGridViewIssues.Columns[5].Name = "Componenent";
+            dataGridViewIssues.Columns[5].Name = "Component";
             dataGridViewIssues.Columns[6].Name = "Status";
             dataGridViewIssues.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             List<Issue> tmp_list = _IssueRepo.GetAll(p_id);
             foreach (Issue i in tmp_list)
             {
-                dataGridViewIssues.Rows.Add(i.Id.ToString(), i.Title, i.DiscoveryDate, i.Discoverer, i.InitialDesscription, i.Component, fake.GetValueById(i.IssueStatusId));
+                int rowid = dataGridViewIssues.Rows.Add();
+                DataGridViewRow row = dataGridViewIssues.Rows[rowid];
+                row.Cells["ID"].Value = i.Id.ToString();
+                row.Cells["Title"].Value = i.Title;
+                row.Cells["DiscoveryDate"].Value = i.DiscoveryDate;
+                row.Cells["Discoverer"].Value = i.Discoverer;
+                row.Cells["InitialDescription"].Value = i.InitialDesscription;
+                row.Cells["Component"].Value = i.Component;
+                row.Cells["Status"].Value = fake.GetValueById(i.IssueStatusId);
 
             }
         }
@@ -49,7 +50,7 @@ namespace P5
 
         private void dataGridViewIssues_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace P5
                 MessageBox.Show("An issue must be selected.", "Attention");
             }else
             {
-                MessageBox.Show(dataGridViewIssues.SelectedRows.Count.ToString());
+                MessageBox.Show(dataGridViewIssues.Rows[0].Cells[0].Value.ToString());
                 int index = 2;
                 DataGridViewRow dgvr = dataGridViewIssues.Rows[index];
                 selectedIssueID = Convert.ToInt32(dgvr.Cells["ID"].Value);
