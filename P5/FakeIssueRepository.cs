@@ -120,9 +120,10 @@ namespace P5
                 if (i.ProjectId == ProjectID)
                 {
                     issues.Add(i);
-                    if (!month_list.Contains(i.DiscoveryDate.Month.ToString()))
+                    string tmp = i.DiscoveryDate.Year.ToString() + " " + i.DiscoveryDate.Month.ToString();
+                    if (!month_list.Contains(tmp))
                     {
-                        month_list.Add(i.DiscoveryDate.Month.ToString());
+                        month_list.Add(tmp);
                     }
 
                 }
@@ -132,7 +133,8 @@ namespace P5
                 int issue_count = 0;
                 foreach (Issue i in issues)
                 {
-                    if (i.DiscoveryDate.Month.ToString() == p)
+                    string tmp2 = i.DiscoveryDate.Year.ToString() + " " + i.DiscoveryDate.Month.ToString();
+                    if (tmp2 == p)
                     {
                         issue_count++;
                     }
