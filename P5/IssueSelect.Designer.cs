@@ -58,6 +58,7 @@
             // 
             this.dataGridViewIssues.AllowUserToAddRows = false;
             this.dataGridViewIssues.AllowUserToDeleteRows = false;
+            this.dataGridViewIssues.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewIssues.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewIssues.Name = "dataGridViewIssues";

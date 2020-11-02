@@ -69,7 +69,6 @@ namespace Builder
             {
                 
                 _selectedRow = dataGridViewIssues.SelectedRows[0];
-                MessageBox.Show(_selectedRow.Cells["ID"].Value.ToString());
                 btnSelect.Enabled = true;
                 if (dataGridViewIssues.SelectedRows.Count > 1)
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Castle.Core.Internal;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -27,24 +28,31 @@ namespace P5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Creating Issue
-            Issue issue = new Issue();
-            issue.Title = textBox2.Text.Trim();
-            issue.InitialDesscription = richTextBoxDescription.Text.Trim();
-            issue.Discoverer = comboBoxDiscoverer.SelectedItem.ToString();
-            issue.Component = textBox3.Text.Trim();
-            issue.DiscoveryDate = dateTimePicker1.Value;
-            issue.IssueStatusId = fakeIssueStatusRepository.GetIdByStatus(comboBoxStatus.SelectedItem.ToString());
-            string result = issueRepository.Add(issue, out _SelectedProjectID);
-            if (result == FakeIssueRepository.NO_ERROR)
+            if (textBox2.Text.IsNullOrEmpty() || dateTimePicker1.Checked == false || comboBoxStatus.SelectedIndex == -1 || comboBoxDiscoverer.SelectedIndex == -1)
             {
-                MessageBox.Show("Issue Added Successfully");
-            }
-            else
+                MessageBox.Show("Please verify all required elements are inpu", "Attention");
+            } else
             {
-                MessageBox.Show("Issue not created, " + result, "Attention.");
+                //Creating Issue
+                Issue issue = new Issue();
+                issue.Title = textBox2.Text.Trim();
+                issue.InitialDesscription = richTextBoxDescription.Text.Trim();
+                issue.Discoverer = comboBoxDiscoverer.SelectedItem.ToString();
+                issue.Component = textBox3.Text.Trim();
+                issue.DiscoveryDate = dateTimePicker1.Value;
+                issue.IssueStatusId = fakeIssueStatusRepository.GetIdByStatus(comboBoxStatus.SelectedItem.ToString());
+                string result = issueRepository.Add(issue, out _SelectedProjectID);
+                if (result == FakeIssueRepository.NO_ERROR)
+                {
+                    MessageBox.Show("Issue Added Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Issue not created, " + result, "Attention.");
+                }
+                this.Close();
             }
-            this.Close();
+
         }
 
         private void RecordIssue_Load(object sender, EventArgs e)

@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace P5
 {
@@ -159,7 +160,10 @@ namespace P5
 
         public string Modify(Issue issue)
         {
-            if (IsDuplicateTitle(issue.Title)){
+            Issue issue1 = new Issue();
+            issue1 = GetIssueByID(issue.Id);
+            if (IsDuplicateTitle(issue.Title) && issue.Title != issue1.Title)
+            {
                 return DUPLICATE_TITLE_ERROR;
             }
             if (issue.Title == "")
@@ -175,11 +179,18 @@ namespace P5
             {
                 if (issue.Id == i.Id) 
                 {
-                    _Issues[index] = issue;
+                    _Issues[index].Title = issue.Title;
+                    _Issues[index].InitialDesscription = issue.InitialDesscription;
+                    _Issues[index].DiscoveryDate = issue.DiscoveryDate;
+                    _Issues[index].Discoverer = issue.Discoverer;
+                    _Issues[index].Component = issue.Component;
+                    _Issues[index].IssueStatusId = issue.IssueStatusId;
+                    MessageBox.Show("Issue should be replaced");
                     return NO_ERROR;
                 }
                 index++;
             }
+            
             return NO_ERROR;
         }
 
