@@ -1,4 +1,4 @@
-﻿namespace P5
+﻿namespace Builder
 {
     partial class IssueSelect
     {
@@ -28,55 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewIssues = new System.Windows.Forms.DataGridView();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
+            this.dataGridViewIssues = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIssues)).BeginInit();
             this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(507, 373);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(609, 373);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 1;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // dataGridViewIssues
             // 
             this.dataGridViewIssues.AllowUserToAddRows = false;
             this.dataGridViewIssues.AllowUserToDeleteRows = false;
-            this.dataGridViewIssues.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewIssues.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewIssues.Location = new System.Drawing.Point(30, 12);
-            this.dataGridViewIssues.MultiSelect = false;
+            this.dataGridViewIssues.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewIssues.Name = "dataGridViewIssues";
             this.dataGridViewIssues.ReadOnly = true;
             this.dataGridViewIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewIssues.Size = new System.Drawing.Size(668, 284);
+            this.dataGridViewIssues.Size = new System.Drawing.Size(672, 355);
             this.dataGridViewIssues.TabIndex = 0;
-            this.dataGridViewIssues.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIssues_CellContentClick);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(547, 339);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(628, 339);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 23);
-            this.btnSelect.TabIndex = 2;
-            this.btnSelect.Text = "Select";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.dataGridViewIssues.SelectionChanged += new System.EventHandler(this.dataGridViewIssues_SelectionChanged);
             // 
             // IssueSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 442);
-            this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(703, 410);
             this.Controls.Add(this.dataGridViewIssues);
+            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.button1);
             this.Name = "IssueSelect";
             this.Text = "Select Issue";
             this.Load += new System.EventHandler(this.IssueSelect_Load);
@@ -87,8 +85,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewIssues;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.DataGridView dataGridViewIssues;
     }
 }

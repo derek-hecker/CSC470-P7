@@ -34,6 +34,18 @@ namespace Builder
         private void FormModifyIssue_Load(object sender, EventArgs e)
         {
             this.CenterToParent();
+            List<IssueStatus> issueStatuses = fakeIssueStatus.GetAll();
+            foreach (IssueStatus i in issueStatuses)
+            {
+                comboBoxStatus.Items.Add(i.value);
+            }
+            comboBoxStatus.SelectedIndex = 0;
+            FakeAppUserRepository fakeAppUserRepository = new FakeAppUserRepository();
+            List<AppUser> appUsers = fakeAppUserRepository.GetAll();
+            foreach (AppUser user in appUsers)
+            {
+                comboBoxDiscoverer.Items.Add(user.UserName);
+            }
             Issue issue = fake.GetIssueByID(selected);
             textBox1.Text = issue.Id.ToString();
             textBox2.Text = issue.Title;
@@ -51,7 +63,7 @@ namespace Builder
             tmp.Title = textBox2.Text.Trim();
             tmp.DiscoveryDate = dateTimePicker1.Value;
             tmp.Discoverer = comboBoxDiscoverer.SelectedItem.ToString();
-            tmp.IssueStatusId = Convert.ToInt32(comboBoxStatus.SelectedItem);
+            tmp.IssueStatusId = fakeIssueStatus.GetIdByStatus(comboBoxStatus.SelectedItem.ToString());
             tmp.InitialDesscription = richTextBoxDescription.Text.Trim();
             tmp.Component = textBox3.Text.Trim();
             string result = fake.Modify(tmp);
