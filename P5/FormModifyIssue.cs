@@ -1,4 +1,5 @@
-﻿using P5;
+﻿using Castle.Core.Internal;
+using P5;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,24 +59,31 @@ namespace Builder
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Issue tmp = new Issue();
-            tmp.Id = Convert.ToInt32(textBox1.Text);
-            tmp.Title = textBox2.Text.Trim();
-            tmp.DiscoveryDate = dateTimePicker1.Value;
-            tmp.Discoverer = comboBoxDiscoverer.SelectedItem.ToString();
-            tmp.IssueStatusId = fakeIssueStatus.GetIdByStatus(comboBoxStatus.SelectedItem.ToString());
-            tmp.InitialDesscription = richTextBoxDescription.Text.Trim();
-            tmp.Component = textBox3.Text.Trim();
-            string result = fake.Modify(tmp);
-            if (result != FakeIssueRepository.NO_ERROR)
+            if (textBox2.Text.IsNullOrEmpty() || dateTimePicker1.Checked == false || comboBoxStatus.SelectedIndex == -1 || comboBoxDiscoverer.SelectedIndex == -1)
             {
-                MessageBox.Show("Error modifying project. Error: " + result);
+                MessageBox.Show("Please verify all required elements are inpu", "Attention");
             }
             else
             {
-                MessageBox.Show("Issue modification successful.", "Information");
-                this.Close();
-            } 
+                Issue tmp = new Issue();
+                tmp.Id = Convert.ToInt32(textBox1.Text);
+                tmp.Title = textBox2.Text.Trim();
+                tmp.DiscoveryDate = dateTimePicker1.Value;
+                tmp.Discoverer = comboBoxDiscoverer.SelectedItem.ToString();
+                tmp.IssueStatusId = fakeIssueStatus.GetIdByStatus(comboBoxStatus.SelectedItem.ToString());
+                tmp.InitialDesscription = richTextBoxDescription.Text.Trim();
+                tmp.Component = textBox3.Text.Trim();
+                string result = fake.Modify(tmp);
+                if (result != FakeIssueRepository.NO_ERROR)
+                {
+                    MessageBox.Show("Error modifying project. Error: " + result);
+                }
+                else
+                {
+                    MessageBox.Show("Issue modification successful.", "Information");
+                    this.Close();
+                }
+            }
         }
     }
 }

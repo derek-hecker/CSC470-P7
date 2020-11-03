@@ -185,7 +185,6 @@ namespace P5
                     _Issues[index].Discoverer = issue.Discoverer;
                     _Issues[index].Component = issue.Component;
                     _Issues[index].IssueStatusId = issue.IssueStatusId;
-                    MessageBox.Show("Issue should be replaced");
                     return NO_ERROR;
                 }
                 index++;

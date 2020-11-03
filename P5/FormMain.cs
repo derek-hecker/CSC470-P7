@@ -135,7 +135,6 @@ namespace P5
                 else if (dialogResult == DialogResult.No)
                 {
                     MessageBox.Show("Delete cancelled", "Attention");
-                    this.Close();
                 }
             }
             select.Dispose();
