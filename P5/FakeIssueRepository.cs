@@ -23,6 +23,10 @@ namespace P5
         {
             _SelectedProjectID = selected_project_id;
         }
+        public FakeIssueRepository()
+        {
+
+        }
         private static List<Issue> _Issues = new List<Issue>();
         public string Add(Issue issue, out int Id)
         {

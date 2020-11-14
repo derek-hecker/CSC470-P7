@@ -139,5 +139,27 @@ namespace P5
             }
             select.Dispose();
         }
+
+        private void createToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            FormCreateFeature form = new FormCreateFeature(selected_id);
+            form.ShowDialog();
+            form.Dispose();
+        }
+
+        private void modifyToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void modifyToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            FormSelectFeature formSelect = new FormSelectFeature(selected_id);
+            formSelect.ShowDialog();
+            if (formSelect.DialogResult == DialogResult.OK)
+            {
+                FormModifyFeature formModify = new FormModifyFeature();
+            }
+        }
     }
 }

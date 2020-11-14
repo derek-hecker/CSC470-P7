@@ -66,6 +66,7 @@
             this.dataGridViewIssues.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewIssues.Size = new System.Drawing.Size(672, 355);
             this.dataGridViewIssues.TabIndex = 0;
+            this.dataGridViewIssues.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIssues_CellContentClick);
             this.dataGridViewIssues.SelectionChanged += new System.EventHandler(this.dataGridViewIssues_SelectionChanged);
             // 
             // IssueSelect

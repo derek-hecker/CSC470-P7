@@ -87,5 +87,10 @@ namespace Builder
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void dataGridViewIssues_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
