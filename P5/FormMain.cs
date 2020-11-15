@@ -151,6 +151,12 @@ namespace P5
         {
             FormSelectRequirement formSelectRequirement = new FormSelectRequirement(selected_id);
             formSelectRequirement.ShowDialog();
+            if (formSelectRequirement.DialogResult == DialogResult.OK)
+            {
+                FormRequirementModify formRequirementModify = new FormRequirementModify(selected_id,formSelectRequirement.selectedRequirementID);
+                formRequirementModify.ShowDialog();
+                formRequirementModify.Dispose();
+            }
         }
 
         private void modifyToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -210,6 +216,11 @@ namespace P5
             FormCreateRequirement form = new FormCreateRequirement(selected_id);
             form.ShowDialog();
             form.Dispose();
+        }
+
+        private void removeToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

@@ -130,28 +130,28 @@
             // issuesDashboardToolStripMenuItem
             // 
             this.issuesDashboardToolStripMenuItem.Name = "issuesDashboardToolStripMenuItem";
-            this.issuesDashboardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.issuesDashboardToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.issuesDashboardToolStripMenuItem.Text = "&Dashboard";
             this.issuesDashboardToolStripMenuItem.Click += new System.EventHandler(this.issuesDashboardToolStripMenuItem_Click);
             // 
             // issuesRecordToolStripMenuItem
             // 
             this.issuesRecordToolStripMenuItem.Name = "issuesRecordToolStripMenuItem";
-            this.issuesRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.issuesRecordToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.issuesRecordToolStripMenuItem.Text = "&Record";
             this.issuesRecordToolStripMenuItem.Click += new System.EventHandler(this.issuesRecordToolStripMenuItem_Click);
             // 
             // issuesModifyToolStripMenuItem
             // 
             this.issuesModifyToolStripMenuItem.Name = "issuesModifyToolStripMenuItem";
-            this.issuesModifyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.issuesModifyToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.issuesModifyToolStripMenuItem.Text = "&Modify";
             this.issuesModifyToolStripMenuItem.Click += new System.EventHandler(this.issuesModifyToolStripMenuItem_Click);
             // 
             // issuesRemoveToolStripMenuItem
             // 
             this.issuesRemoveToolStripMenuItem.Name = "issuesRemoveToolStripMenuItem";
-            this.issuesRemoveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.issuesRemoveToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.issuesRemoveToolStripMenuItem.Text = "R&emove";
             this.issuesRemoveToolStripMenuItem.Click += new System.EventHandler(this.issuesRemoveToolStripMenuItem_Click);
             // 
@@ -166,7 +166,7 @@
             this.issuesReportListByDateRangeToolStripMenuItem,
             this.issuesReportTrendByDateRangeToolStripMenuItem});
             this.issuesReportToolStripMenuItem.Name = "issuesReportToolStripMenuItem";
-            this.issuesReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.issuesReportToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.issuesReportToolStripMenuItem.Text = "Re&port";
             // 
             // issuesReportCountByAssigneeToolStripMenuItem
@@ -272,6 +272,7 @@
             this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
             this.removeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem1.Text = "Remove";
+            this.removeToolStripMenuItem1.Click += new System.EventHandler(this.removeToolStripMenuItem1_Click);
             // 
             // designToolStripMenuItem
             // 
