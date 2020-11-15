@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -43,15 +43,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Title";
             // 
-            // btnSelect
+            // btnCancel
             // 
-            this.btnSelect.Location = new System.Drawing.Point(269, 83);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(106, 23);
-            this.btnSelect.TabIndex = 2;
-            this.btnSelect.Text = "Cancel";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.btnCancel.Location = new System.Drawing.Point(269, 83);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(106, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnModify
             // 
@@ -63,21 +63,21 @@
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
-            // textBox1
+            // textBoxTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(58, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(429, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBoxTitle.Location = new System.Drawing.Point(58, 57);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(429, 20);
+            this.textBoxTitle.TabIndex = 4;
             // 
             // FormModifyFeature
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 153);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxTitle);
             this.Controls.Add(this.btnModify);
-            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label1);
             this.Name = "FormModifyFeature";
             this.Text = "Modify Feature";
@@ -90,8 +90,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTitle;
     }
 }

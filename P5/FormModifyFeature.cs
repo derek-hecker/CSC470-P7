@@ -24,16 +24,16 @@ namespace Builder
             _SelectedProjectId = project;
             feature = feat;
             f = FakeFeatureRepository.GetFeatureByID(feature);
-            textBox1.Text = f.Title;
+            textBoxTitle.Text = f.Title;
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
             Feature tmp = new Feature();
-            tmp.Title = textBox1.Text.Trim();
+            tmp.Title = textBoxTitle.Text.Trim();
             tmp.Id = f.Id;
             tmp.ProjectId = f.ProjectId;
-            MessageBox.Show(tmp.Title);
+            MessageBox.Show(textBoxTitle.Text.Trim());
             string result = FakeFeatureRepository.Modify(tmp);
             if (result != FakeFeatureRepository.NO_ERROR)
             {
