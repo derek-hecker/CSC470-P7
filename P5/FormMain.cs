@@ -211,6 +211,21 @@ namespace P5
             formSelect.Dispose();
         }
 
+        private void removeToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+            FormSelectRequirement form = new FormSelectRequirement(selected_id);
+            FakeFeatureRepository fakeFeatureRepository = new FakeFeatureRepository(selected_id);
+            FakeRequiremnetRepository fakeRequiremnetRepository = new FakeRequiremnetRepository(selected_id);
+            form.ShowDialog();
+            Requirement r = fakeRequiremnetRepository.GetRequirementByID(form.selectedRequirementID);
+            string del = "Are you sure you want to delete " + r.Statement + " ?";
+            MessageBox.Show(form.selectedRequirementID.ToString());
+            DialogResult dialogResult = MessageBox.Show(del, "Confirmation", MessageBoxButtons.YesNo);
+            if (form.DialogResult == DialogResult.OK)
+            {              
+                fakeRequiremnetRepository.Remove(r);
+            }
+        }
         private void createToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             FormCreateRequirement form = new FormCreateRequirement(selected_id);
@@ -218,9 +233,5 @@ namespace P5
             form.Dispose();
         }
 
-        private void removeToolStripMenuItem1_Click(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }
