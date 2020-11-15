@@ -27,6 +27,7 @@ namespace Builder
         {
             this.CenterToParent();
             List<Feature> features = fake.GetAll(selected_project);
+            comboBox1.SelectedIndex = 0;
             foreach (Feature f in features)
             {
                 comboBox1.Items.Add(f.Title);
@@ -41,10 +42,15 @@ namespace Builder
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex > -1)
+            if (comboBox1.SelectedIndex > 0)
             {
                 richTextBox1.Enabled = true;
                 btnCreate.Enabled = true;
+            }
+            else
+            {
+                richTextBox1.Enabled = false;
+                btnCreate.Enabled = false;
             }
         }
 

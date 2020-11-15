@@ -47,5 +47,10 @@ namespace Builder
         {
             this.Close();
         }
+
+        private void FormCreateFeature_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

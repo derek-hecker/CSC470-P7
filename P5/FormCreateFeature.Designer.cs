@@ -81,6 +81,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormCreateFeature";
             this.Text = "Create Feature";
+            this.Load += new System.EventHandler(this.FormCreateFeature_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
