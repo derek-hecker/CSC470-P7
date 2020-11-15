@@ -74,7 +74,7 @@ namespace Builder
             Feature feature = fake.GetFeatureByTitle(comboBox1.SelectedItem.ToString());
             requirement.FeatureId = feature.Id;
             requirement.Statement = richTextBox1.Text.Trim();
-            MessageBox.Show(requirement.Statement);
+            MessageBox.Show(requirement.Id.ToString());
             requirement.ProjectId = selected_project;
             requirement.Id = selected_r;
             string result = fakeRequiremnet.Modify(requirement);

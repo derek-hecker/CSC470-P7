@@ -15,7 +15,7 @@ namespace Builder
     {
         int _SelectedProjectId;
         int feature;
-        FakeFeatureRepository FakeFeatureRepository;
+        FakeFeatureRepository FakeFeature;
         Feature f;
         public FormModifyFeature(int project, int feat)
         {
@@ -23,8 +23,8 @@ namespace Builder
             this.CenterToScreen();
             _SelectedProjectId = project;
             feature = feat;
-            f = FakeFeatureRepository.GetFeatureByID(feature);
-            FakeFeatureRepository = new FakeFeatureRepository(_SelectedProjectId);
+            FakeFeature = new FakeFeatureRepository(_SelectedProjectId);
+            f = FakeFeature.GetFeatureByID(feature);
             textBoxTitle.Text = f.Title;
         }
 
@@ -34,8 +34,7 @@ namespace Builder
             tmp.Title = textBoxTitle.Text.Trim();
             tmp.Id = f.Id;
             tmp.ProjectId = f.ProjectId;
-            MessageBox.Show(textBoxTitle.Text.Trim());
-            string result = FakeFeatureRepository.Modify(tmp);
+            string result = FakeFeature.Modify(tmp);
             if (result != FakeFeatureRepository.NO_ERROR)
             {
                 MessageBox.Show("Error modifying feature. Error: " + result);

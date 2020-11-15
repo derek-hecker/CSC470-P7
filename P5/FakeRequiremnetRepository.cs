@@ -96,7 +96,7 @@ namespace Builder
             {
                 if (requirement.Id == r.Id)
                 {
-                    requirements[index].Statement = r.Statement;
+                    requirements[index].Statement = requirement.Statement;
                     return NO_ERROR;
                 }
                 index++;
