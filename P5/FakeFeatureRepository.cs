@@ -76,15 +76,17 @@ namespace Builder
         public string Modify(Feature feature)
         {
             Feature feature1 = new Feature();
-            feature1 = GetFeatureByID(feature1.Id);
-            if (IsDuplicateTitle(feature1.Title) && feature.Title != feature1.Title)
+            feature1 = GetFeatureByID(feature.Id);
+            if (IsDuplicateTitle(feature.Title) && feature.Title != feature1.Title)
             {
                 return DUPLICATE_TITLE_ERROR;
             }
+            
             if (feature.Title == "")
             {
                 return EMPTY_TITLE_ERROR;
             }
+            
             int index = 0;
             foreach (Feature f in features)
             {

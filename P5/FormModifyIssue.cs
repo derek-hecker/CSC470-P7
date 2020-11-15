@@ -61,7 +61,7 @@ namespace Builder
         {
             if (textBox2.Text.IsNullOrEmpty() || dateTimePicker1.Checked == false || comboBoxStatus.SelectedIndex == -1 || comboBoxDiscoverer.SelectedIndex == -1)
             {
-                MessageBox.Show("Please verify all required elements are inpu", "Attention");
+                MessageBox.Show("Please verify all required elements are input", "Attention");
             }
             else
             {

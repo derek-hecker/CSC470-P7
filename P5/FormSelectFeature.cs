@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Builder
@@ -14,7 +8,7 @@ namespace Builder
     {
         public int selected_id;
         FakeFeatureRepository fakeFeatureRepository;
-        public int selectedIssueID;
+        public int selectedFeatureID;
         DataGridViewRow _selectedRow = new DataGridViewRow();
         public FormSelectFeature(int project_id)
         {
@@ -38,7 +32,9 @@ namespace Builder
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            selectedFeatureID = Convert.ToInt32(_selectedRow.Cells["ID"].Value);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void dataGridViewFeatures_SelectionChanged(object sender, EventArgs e)
@@ -59,14 +55,15 @@ namespace Builder
             }
         }
 
-        private void dataGridViewFeatures_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void FormSelectFeature_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

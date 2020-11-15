@@ -158,8 +158,32 @@ namespace P5
             formSelect.ShowDialog();
             if (formSelect.DialogResult == DialogResult.OK)
             {
-                FormModifyFeature formModify = new FormModifyFeature();
+                FormModifyFeature formModify = new FormModifyFeature(selected_id, formSelect.selectedFeatureID);
+                formModify.ShowDialog();
+                formModify.Dispose();
             }
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            FormSelectFeature formSelect = new FormSelectFeature(selected_id);
+            FakeFeatureRepository fakeFeatureRepository = new FakeFeatureRepository(selected_id);
+            formSelect.ShowDialog();
+            if (formSelect.DialogResult == DialogResult.OK)
+            {
+                Feature tmp = fakeFeatureRepository.GetFeatureByID(formSelect.selectedFeatureID);
+                string del = "Are you sure you want to delete " + tmp.Title;
+                DialogResult dialogResult = MessageBox.Show(del, "Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    fakeFeatureRepository.Remove(tmp);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Delete cancelled", "Attention");
+                }
+            }
+            formSelect.Dispose();
         }
     }
 }

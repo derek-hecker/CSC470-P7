@@ -42,6 +42,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSelect
             // 
@@ -57,7 +58,6 @@
             // 
             this.dataGridViewFeatures.AllowUserToAddRows = false;
             this.dataGridViewFeatures.AllowUserToDeleteRows = false;
-            this.dataGridViewFeatures.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewFeatures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFeatures.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewFeatures.Name = "dataGridViewFeatures";
@@ -65,7 +65,7 @@
             this.dataGridViewFeatures.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewFeatures.Size = new System.Drawing.Size(672, 355);
             this.dataGridViewFeatures.TabIndex = 2;
-            this.dataGridViewFeatures.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFeatures_CellContentClick);
+            this.dataGridViewFeatures.SelectionChanged += new System.EventHandler(this.dataGridViewFeatures_SelectionChanged);
             // 
             // FormSelectFeature
             // 
