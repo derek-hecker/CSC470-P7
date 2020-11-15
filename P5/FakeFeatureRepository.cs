@@ -21,10 +21,6 @@ namespace Builder
         {
             _SelectedProjectID = selected_project;
         }
-        public FakeFeatureRepository()
-        {
-
-        }
         public string Add(Feature feature)
         {
             string newFeatureTitle = feature.Title.Trim();
@@ -70,7 +66,15 @@ namespace Builder
 
         public Feature GetFeatureByTitle(string title)
         {
-            throw new NotImplementedException();
+            Feature feature = new Feature();
+            foreach (Feature f in features)
+            {
+                if (f.Title == title)
+                {
+                    feature = f;
+                }
+            }
+            return feature;
         }
 
         public string Modify(Feature feature)

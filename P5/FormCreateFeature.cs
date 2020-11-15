@@ -14,7 +14,7 @@ namespace Builder
     public partial class FormCreateFeature : Form
     {
         int selected_project_id;
-        FakeFeatureRepository fakeFeature = new FakeFeatureRepository();
+        FakeFeatureRepository fakeFeature;
         FakeIssueStatusRepository fakeIssueStatus = new FakeIssueStatusRepository();
         
         public FormCreateFeature(int selected_project)
@@ -22,7 +22,8 @@ namespace Builder
             InitializeComponent();
             this.CenterToParent();
             selected_project_id = selected_project;
-            
+            fakeFeature = new FakeFeatureRepository(selected_project);
+
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

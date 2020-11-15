@@ -15,7 +15,7 @@ namespace Builder
     {
         int _SelectedProjectId;
         int feature;
-        FakeFeatureRepository FakeFeatureRepository = new FakeFeatureRepository();
+        FakeFeatureRepository FakeFeatureRepository;
         Feature f;
         public FormModifyFeature(int project, int feat)
         {
@@ -24,6 +24,7 @@ namespace Builder
             _SelectedProjectId = project;
             feature = feat;
             f = FakeFeatureRepository.GetFeatureByID(feature);
+            FakeFeatureRepository = new FakeFeatureRepository(_SelectedProjectId);
             textBoxTitle.Text = f.Title;
         }
 

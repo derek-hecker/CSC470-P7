@@ -168,15 +168,33 @@ namespace P5
         {
             FormSelectFeature formSelect = new FormSelectFeature(selected_id);
             FakeFeatureRepository fakeFeatureRepository = new FakeFeatureRepository(selected_id);
+            FakeRequiremnetRepository fakeRequiremnetRepository = new FakeRequiremnetRepository(selected_id);   
             formSelect.ShowDialog();
             if (formSelect.DialogResult == DialogResult.OK)
             {
                 Feature tmp = fakeFeatureRepository.GetFeatureByID(formSelect.selectedFeatureID);
+                int count = fakeRequiremnetRepository.CountByFeatureID(formSelect.selectedFeatureID);
                 string del = "Are you sure you want to delete " + tmp.Title;
+                string associated = "There are one or more requirements associated with this feature. These requirements will be destroyed if you remove this feature. Are you sure you want to remove" + tmp.Title + "?";
                 DialogResult dialogResult = MessageBox.Show(del, "Confirmation", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    fakeFeatureRepository.Remove(tmp);
+                    if (count > 0)
+                    {
+                        DialogResult dialogResult2 = MessageBox.Show(associated, "Confirmation", MessageBoxButtons.YesNo);
+                        if (dialogResult2 == DialogResult.Yes)
+                        {
+                            fakeFeatureRepository.Remove(tmp);
+                            fakeRequiremnetRepository.RemoveByFeatureID(tmp.Id);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Delete cancelled", "Attention");
+                        }
+                        
+                    }
+                    
                 }
                 else if (dialogResult == DialogResult.No)
                 {

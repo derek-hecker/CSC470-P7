@@ -121,14 +121,19 @@ namespace Builder
 
         public void RemoveByFeatureID(int featureID)
         {
+            List<int> list = new List<int>();
             int index = 0;
             foreach (Requirement r in requirements)
             {
                 if (r.FeatureId == featureID)
                 {
-                    requirements.RemoveAt(index);
+                    list.Add(index);
                 }
                 index++;
+            }
+            foreach (int i in list)
+            {
+                requirements.RemoveAt(i);
             }
         }
         public bool isDuplicateDescription(string desc)

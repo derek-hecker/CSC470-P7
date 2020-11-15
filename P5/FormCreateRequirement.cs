@@ -50,6 +50,21 @@ namespace Builder
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            Requirement requirement = new Requirement();
+            Feature feature = fake.GetFeatureByTitle(comboBox1.SelectedItem.ToString());
+            requirement.FeatureId = feature.Id;
+            requirement.Statement = richTextBox1.Text.Trim();
+            requirement.ProjectId = selected_project;
+            string result = fakeRequiremnet.Add(requirement);
+            if (result == FakeFeatureRepository.NO_ERROR)
+            {
+                MessageBox.Show("Requirement Added Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Requirement not added, " + result, "Attention");
+            }
+            this.Close();
 
         }
 
