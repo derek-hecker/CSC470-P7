@@ -96,7 +96,7 @@ namespace Builder
             {
                 if (feature.Id == f.Id)
                 {
-                    features[index].Title = f.Title;
+                    features[index].Title = feature.Title;
                     return NO_ERROR;
                 }
                 index++;

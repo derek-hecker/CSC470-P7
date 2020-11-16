@@ -13,29 +13,25 @@ namespace Builder
     public partial class FormModifyFeature : Form
     {
         int _SelectedProjectId;
-        int feature;
+        int featureID;
         FakeFeatureRepository FakeFeature;
-        Feature f;
-        Feature tmp;
+        Feature selectedFeauture;
+        Feature temporaryFeature;
         public FormModifyFeature(int project, int feat)
         {
             InitializeComponent();
-            this.CenterToScreen();
             _SelectedProjectId = project;
-            feature = feat;
-            FakeFeature = new FakeFeatureRepository(_SelectedProjectId);
-            f = FakeFeature.GetFeatureByID(feature);
-            textBoxTitle.Text = f.Title;
-            tmp = new Feature();
+            featureID = feat;
+
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
             
-            tmp.Title = textBoxTitle.Text.Trim();
-            tmp.Id = f.Id;
-            tmp.ProjectId = f.ProjectId;
-            string result = FakeFeature.Modify(tmp);
+            temporaryFeature.Title = textBoxTitle.Text.Trim();
+            temporaryFeature.Id = selectedFeauture.Id;
+            temporaryFeature.ProjectId = selectedFeauture.ProjectId;
+            string result = FakeFeature.Modify(temporaryFeature);
             if (result != FakeFeatureRepository.NO_ERROR)
             {
                 MessageBox.Show("Error modifying feature. Error: " + result);
@@ -50,9 +46,11 @@ namespace Builder
 
         private void FormModifyFeature_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
             this.CenterToScreen();
-
+            FakeFeature = new FakeFeatureRepository(_SelectedProjectId);
+            selectedFeauture = FakeFeature.GetFeatureByID(featureID);
+            textBoxTitle.Text = selectedFeauture.Title;
+            temporaryFeature = new Feature();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
