@@ -219,7 +219,6 @@ namespace P5
             form.ShowDialog();
             Requirement r = fakeRequiremnetRepository.GetRequirementByID(form.selectedRequirementID);
             string del = "Are you sure you want to delete " + r.Statement + " ?";
-            MessageBox.Show(form.selectedRequirementID.ToString());
             DialogResult dialogResult = MessageBox.Show(del, "Confirmation", MessageBoxButtons.YesNo);
             if (form.DialogResult == DialogResult.OK)
             {              
